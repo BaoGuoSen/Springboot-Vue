@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+			PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.demo.dao.StudentMapper">
+
+	<resultMap type="mybatis.demo.entity.course" id="courseMap">
+		
+		<result property="cname" column="cname" jdbcType="VARCHAR"/>
+		<result property="cflag" column="cflag" jdbcType="INTEGER"/>
+		<result property="uid" column="uid" jdbcType="INTEGER"/>
+		<result property="state" column="state" jdbcType="TINYINT"/>
+		<result property="wid" column="wid" jdbcType="INTEGER"/>
+		<result property="teacher" column="teacher" jdbcType="VARCHAR"/>
+		
+	</resultMap>	
+	
+	<resultMap type="mybatis.demo.entity.work" id="work">
+		
+		<result property="cflag" column="cflag" jdbcType="INTEGER"/>
+		<result property="title" column="title" jdbcType="VARCHAR"/>
+		<result property="content" column="content" jdbcType="VARCHAR"/>
+		<result property="date" column="date" jdbcType="DATE"/>
+		<result property="deadline" column="deadline" jdbcType="DATE"/>
+		<result property="wid" column="wid" jdbcType="INTEGER"/>
+		
+	</resultMap>
+	
+	
+	
+	<select id="getallcourse" resultMap="courseMap">
+		select * from course where cflag in(
+			select cflag from c_stu where uid=#{id, jdbcType=INTEGER}		
+		)
+	</select>
+	
+	<select id="findcourses" resultMap="courseMap">
+		select * from course 
+	</select>
+	
+	<select id="getcoursebyflag" resultMap="courseMap">
+		select * from course where cflag=#{cflag, jdbcType=INTEGER}
+	</select>
+	
+	<select id="getcoursemates" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+		select count(distinct uid) from c_stu where cflag=#{cflag, jdbcType=INTEGER}
+	</select>
+	
+	<select id="getallwork" resultMap="work">
+		select * from work where cflag=#{cflag, jdbcType=INTEGER}
+	</select>
+	
+	<select id="getscores" resultType="mybatis.demo.entity.score">
+		select work.wid,title,username,score from work,upwork 
+		where work.wid=upwork.wid and upwork.id=#{id, jdbcType=INTEGER}
+	</select>
+		
+	<insert id="joincourse" useGeneratedKeys="true" parameterType="mybatis.demo.entity.c_stu">
+		insert into c_stu
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				cflag,
+                uid,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >       
+                #{cflag, jdbcType=INTEGER},
+				 #{uid, jdbcType=INTEGER},
+        </trim>
+	</insert>
+	
+	<insert id="uploadwork" useGeneratedKeys="true" parameterType="mybatis.demo.entity.upwork">
+		insert into upwork
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				wid,
+                id,
+                username,
+                fileurl
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >       
+                #{wid, jdbcType=INTEGER},
+				 #{id, jdbcType=INTEGER},
+				 #{username, jdbcType=VARCHAR},
+				 #{fileurl, jdbcType=VARCHAR},
+        </trim>
+	</insert>
+	
+	<delete id="deletecourse" parameterType="mybatis.demo.entity.c_stu">
+		delete from c_stu where cflag= #{cflag, jdbcType=INTEGER} and uid= #{uid, jdbcType=INTEGER}
+	</delete>
+		
+	
+</mapper>
