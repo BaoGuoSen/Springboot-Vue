@@ -20,10 +20,10 @@
 
 ## 截图展示(只展示部分，完整截图查看演示文档)
   1.课程主界面：<br>
-![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/class.png)
+![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/class.png)<br>
   2.学生提交作业状态及批阅：<br>
-![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/classmates.png)  
+![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/classmates.png)  <br>
   3.选修课程界面：<br>
-![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/index.png)
+![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/index.png)<br>
   4.注册：<br>
-![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/logon.png)
+![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/logon.png)<br>
