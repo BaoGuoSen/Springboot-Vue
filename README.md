@@ -27,3 +27,7 @@
 ![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/index.png)<br>
   4.注册：<br>
 ![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/logon.png)<br>
+
+## 技术难点：
+  1.跨域（利用axios）<br>
+  2.上传的文件存储，重启服务器后文件消失
