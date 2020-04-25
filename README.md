@@ -22,7 +22,7 @@
   1.课程主界面：<br>
 ![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/class.png)<br>
   2.学生提交作业状态及批阅：<br>
-![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/classmates.png)  <br>
+![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/classmates.png)<br>
   3.选修课程界面：<br>
 ![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/index.png)<br>
   4.注册：<br>
@@ -36,7 +36,11 @@
 ## 解决办法
   1.利用axios的get/post方法调用后端接口，实现数据交互。<br>
   2.在后端配置文件上传的存储路径，将文件保存到本地文件夹，同时将文件的路径和名称插入数据库，调用的时候直接通过数据库获取文件的路径信息，实现引用。<br>
-  3.通过后端重写HttpSecurity里的WebSecurityConfigurerAdapter中的方法给用户配置相应的角色，和能访问的路径。前端通过获取用户的角色信息跳转到相应的操作界面。
+  3.通过后端重写HttpSecurity里的WebSecurityConfigurerAdapter中的方法给用户配置相应的角色，和能访问的路径。前端通过获取用户的角色信息跳转到相应的操作界面。<br>
 
 ## 项目收获
-  1.对项目的一整套具体开发流程有了较详细的了解，
+  1.对项目的一整套具体开发流程有了较详细的了解。
+  2.学会了如何调试项目中遇到的Bug。
+  3.
+  
+## 此项目主要是记录自己的开发过程及心得，如需转载，请注明出处。
