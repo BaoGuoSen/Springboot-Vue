@@ -29,12 +29,12 @@
 ![image](https://github.com/BaoGuoSen/Springboot-Vue/blob/master/imgs/logon.png)<br>
 
 ## 技术难点：
-  1.跨域（利用axios）<br>
+  1.跨域<br>
   2.上传的文件存储，重启服务器后文件消失<br>
   3.用户的权限控制<br>
 
 ## 解决办法
-  1.利用axios的get/post方法调用后端接口，实现数据交互。<br>
+  1.利用vue-cli创建的项目，自带proxyTable，代理跨域，利用axios的get/post方法调用后端接口，实现数据交互。<br>
   2.在后端配置文件上传的存储路径，将文件保存到本地文件夹，同时将文件的路径和名称插入数据库，调用的时候直接通过数据库获取文件的路径信息，实现引用。<br>
   3.通过后端重写HttpSecurity里的WebSecurityConfigurerAdapter中的方法给用户配置相应的角色，和能访问的路径。前端通过获取用户的角色信息跳转到相应的操作界面。<br>
 
